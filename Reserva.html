@@ -12,9 +12,9 @@
     <script src='main.js'></script>
  </head>
  <body>
-   <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+   <div class=" w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
       <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-      <a href="#" class="w3-bar-item w3-button">Link 1</a>
+      <a href="login.html" class="w3-bar-item w3-button">Login</a>
       <a href="#" class="w3-bar-item w3-button">Link 2</a>
       <a href="#" class="w3-bar-item w3-button">Link 3</a>
     </div>
@@ -25,5 +25,73 @@
      <h1>My Page</h1>
    </div>
  </div>
+ <div class="w3-container">
+   <h1>Crear Reserva:</h1>
+   <h3>Llenado de datos</h3>
+   <div>
+      <p>para empezar con la reserva, llene los siguientes campos correspondientes en caso de que participen 1 o mas docentes extra, puede añadirlos.</p>
+   </div>
+   <div>
+      <p>
+         Una vez llenado todos los datos presione el boton siguiente, si necesita realizar una modificacion podra volver a modificarlos apretando el boton volver atras.
+      </p>
+   </div>
+ </div>
+ <form class=" w3-container">
+   <h2>Datos del Docente</h2>
+   
+   <div class=" w3-container ">
+      <div class=" w3-half w3-container">
+         <p><input class="w3-input " type="text" placeholder="cosme fulanito">Nombre Completo Docente:</p>
+        </div>
+        
+        <div class="w3-quarter w3-container" >
+       
+         <select class="w3-select" name="option" >
+           
+            <option value="1">Examen</option>
+            <option value="2">Reunion</option>
+            <option value="3">Clases</option>
+         </select>
+         motivo
+        </div>
+        <div class="w3-quarter w3-container">
+         <p><input class="w3-input " type="date">fecha</p>
+       </div>
+   </div>
+   <div class="w3-container ">
+    <div class="w3-quarter w3-container">
+      <p><input class="w3-input  " type="text" placeholder="Nombre docente extra">Agregar mas docentes:</p>
+    </div>
+    <div class="w3-quarter w3-container">
+      <p><input class="w3-input  " type="number" placeholder="grupo">grupo:</p>
+    </div>
+    <div class="w3-quarter w3-container" >
+      <select class="w3-select" name="option" >
+           
+         <option value="1">6:45 - 9:45</option>
+         <option value="2">9:45 - 11:15</option>
+         <option value="3">11:15 - 12:45</option>
+         <option value="4">12:45 - 14:15</option>
+         <option value="5">14:15 - 15:45</option>
+         <option value="6">15:45 - 17:15</option>
+         <option value="7">17:15 - 18:45</option>
+         <option value="6">18:45 - 20:15</option>
+         <option value="7">20:15 - 21:45</option>
+      </select>
+      Horario
+     </div>
+     <div class="w3-quarter w3-container">
+      <p><input class="w3-input  w3-hover-blue" type="text">Materia</p>
+    </div>
+   </div>
+ <div class="w3-quarter w3-container w3-tiny">
+   <button class="w3-button w3-xlarge w3-circle w3-teal">+</button>
+ </div>
+   </form>
+   <div class="w3-right w3-container">
+      <button class="w3-button w3-teal w3-round-xlarge ">Anterior</button>
+      <button class="w3-button w3-teal w3-round-xlarge">Siguiente</button>
+   </div>
  </body>
  </html>
