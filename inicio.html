@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,500&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="inicio.css">
-    <title>Inicio</title>
-</head>
+<html>
+<title>Inicio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
-    <div class="inicio">
-        <H2>QUE NO TE GANEN, RESERVA TUS AULAS!</H2>
-        <p>
-            Esta herramienta facilita la gestión de aulas al proporcionar información detallada sobre las características clave de cada una de ellas.
-        </p>
+
+    <div class=" w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+        <button onclick="w3_close()" class="w3-bar-item w3-large">Cerrar &times;</button>
+        <a href="login.html" class="w3-bar-item w3-button">Login</a>
+        <a href="Reserva.html" class="w3-bar-item w3-button">Reservar</a>
+        <a href="busqueda.html" class="w3-bar-item w3-button">caracteristicas</a>
+        <link rel="stylesheet" href="inicio.css">
+      </div>
+    <script src="navbar.js"></script>
+    <div class="w3-teal">
+     <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+   </div>
+
+<div class="w3-container w3-teal">
+<h1>Que no te ganen, reserva tu aula!</h1>
+</div>
+
+<div class="w3-container">
+    <img src="fcyt6.jpg" class="w3-grayscale-min">
     </div>
-    <footer>
-        <i class='bx bxl-facebook-square'></i>
-        <p>Facultad de Ciencias y Tecnología UMSS - Página Oficial</p>
-    </footer>
+
+<div class="w3-container w3-teal">
+    <p>Esta herramienta facilita la gestion de aulas, ya que proporciona información detallada sobre las caracteristicas.</p>
+    </div>
+
 </body>
 </html>
