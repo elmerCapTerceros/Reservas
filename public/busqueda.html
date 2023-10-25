@@ -10,6 +10,29 @@
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    <script src='main.js'></script>
+   
+   <script>
+    // Realiza una solicitud AJAX para obtener los datos de la tabla Aula
+    fetch('/obtener-datos-aula') // Ruta que definiste en tu servidor
+      .then(response => response.json())
+      .then(data => {
+        const table = document.getElementById("myTable");
+
+        data.forEach(item => {
+          const newRow = table.insertRow(-1);
+          const codAulaCell = newRow.insertCell(0);
+          const capacidadCell = newRow.insertCell(1);
+          const descripcionCell = newRow.insertCell(2);
+
+          codAulaCell.textContent = item.codAula;
+          capacidadCell.textContent = item.Capacidad + " alumnos";
+          descripcionCell.textContent = item.Descripcion;
+        });
+      })
+      .catch(error => {
+        console.error("Error al obtener datos:", error);
+      });
+   </script>
 </head>
 <body>
   <div class=" w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
@@ -37,59 +60,7 @@
         <th style="width:30%;">Capacidad</th>
         <th style="width:60%;">Descripción</th>
       </tr>
-      <tr>
-        <td>690A</td>
-        <td>30 alumnos</td>
-        <td>Aula pequeña, sin proyector</td>
-      </tr>
-      <tr>
-        <td>690B</td>
-        <td>40 alumnos</td>
-        <td>Aula Mediana, sin proyector.</td>
-      </tr>
-      <tr>
-        <td>690C</td>
-        <td>30 alumnos</td>
-        <td>Aula pequeña, sin proyector</td>
-      </tr>
-      <tr>
-        <td>690D</td>
-        <td>30 alumnos</td>
-        <td>Aula pequeña, con proyector.</td>
-      </tr>
-      <tr>
-        <td>690E</td>
-        <td>35 alumnos</td>
-        <td>Aula mediana, con asientos comodos.</td>
-      </tr>
-      <tr>
-        <td>691A</td>
-        <td>80 alumnos</td>
-        <td>Aula grande, con proyector.</td>
-      </tr>
-      <tr>
-        <td>691B</td>
-        <td>80 alumnos</td>
-        <td>Aula grande, sin proyector.</td>
-      </tr>
-      <tr>
-        <td>691C</td>
-        <td>40 alumnos</td>
-        <td>Aula mediana, con proyector.</td>
-      </tr>
-      <tr>
-      <td>691D</td>
-        <td>40 alumnos</td>
-        <td>Aula mediana, con proyector</td>
-        </tr>
-      <tr>
-         <td>Auditorio</td>
-         <td>200 alumnos</td>
-         <td>Ideal para charlas o exámenes.</td>
-        </tr>
     </table>
-  
-
   </div>
   
   <script>
@@ -112,7 +83,5 @@
     }
   }
   </script>
-  
-
 </body>
 </html>
