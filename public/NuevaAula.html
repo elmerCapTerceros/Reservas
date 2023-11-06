@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+   <title>NuevaAula</title>
+   <meta name='Reserva de aulas' content='width=device-width, initial-scale=1'>
+   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+   <link rel="stylesheet" href="Reserva.css">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script src='main.js'></script>
+</head>
+<body>
+  <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+     <button onclick="w3_close()" class="w3-bar-item w3-large">Cerrar &times;</button>
+     <a href="login.html" class="w3-bar-item w3-button">Login</a>
+     <a href="inicio.html" class="w3-bar-item w3-button">Inicio</a>
+     <a href="Reserva.html" class="w3-bar-item w3-button">Reservar</a>
+     <a href="busquedaAdmi.html" class="w3-bar-item w3-button">Admin</a>
+     <a href="Historial.html" class="w3-bar-item w3-button">Historial</a>
+  </div>
+  <script src="navbar.js"></script>
+  <div class="w3-teal">
+    <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+    <div class="w3-container">
+      <h1>INGRESAR NUEVAS AULAS</h1>
+    </div>
+
+    <div class="w3-container w3-white ">
+      <h2>Rellene todos los campos.</h2>
+      <div class="w3-row-padding w3-round-xlarge">
+        <form id="aulaForm">
+          <div class="w3-third">
+            <input class="w3-input w3-border" type="text" name="codAula" placeholder="Aula">
+          </div>
+          <div class="w3-third">
+            <input class="w3-input w3-border" type="text" name="Capacidad" placeholder="Capacidad">
+          </div>
+          <div class="w3-third">
+            <input class="w3-input w3-border" type="text" name="Descripcion" placeholder="Descripción">
+          </div>
+        </form>
+        
+      </div>
+      <br>
+      <button class="w3-btn w3-block w3-blue w3-center" style="width:50%" onclick="agregarAula()">Agregar Aula</button>
+      <br>
+      <br>
+    </div>
+
+    <div class="w3-container">
+      <h1>INGRESAR AULAS POR LOTE</h1>
+    </div>
+         <div class="w3-container w3-white">
+          <h3>Para ingresar por lote, tiene que tener un archivo.csv </h3>
+          <form class="w3-container" action="procesar_archivo.php" method="post" enctype="multipart/form-data">
+            <label for="archivo">Selecciona un archivo CSV:</label>
+            <input type="file" name="archivo" id="archivo" accept=".csv">
+            <br>
+            <br>
+            <button class="w3-btn w3-block w3-blue w3-center" style="width:50%" onclick="agregarLote()">Subir Archivo</button>
+          </form>
+         </div>
+  </div>
+
+
+
+
+  <script>
+    function agregarAula() {
+      const form = document.getElementById('aulaForm');
+      const formData = new FormData(form);
+  
+      // Realiza una solicitud POST al servidor para agregar los datos
+      fetch('http://localhost:5500/agregar-aula', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Procesa la respuesta del servidor, si es necesario
+          console.log(data);
+        })
+        .catch(error => {
+          console.error('Error al agregar aula:', error);
+        });
+    }
+  </script>
+</body>
+</html>
