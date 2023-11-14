@@ -30,7 +30,7 @@
     <div class="w3-container w3-white ">
       <h2>Rellene todos los campos.</h2>
       <div class="w3-row-padding w3-round-xlarge">
-          <form id="aulaForm" action="http://localhost:5500/agregar-datos-aula" method="POST" onsubmit="return validarFormulario()">
+          <form id="aulaForm" >
               <div class="w3-third">
                   <label for="codAula">Aula:</label>
                   <input class="w3-input w3-border" type="text" id="codAula" name="codAula" placeholder="Aula" required>
@@ -43,7 +43,7 @@
                   <label for="Descripcion">Descripción:</label>
                   <input class="w3-input w3-border" type="text" id="Descripcion" name="Descripcion" placeholder="Descripción" required>
               </div>
-              <button class="w3-btn w3-block w3-blue w3-center" style="width:50%" onclick="agregarAula()">agregar Aula</button>
+              <button class="w3-btn w3-block w3-blue w3-center" id= "botons" style="width:50%" >agregar Aula</button>
           </form>
       </div>
       <br>
@@ -64,82 +64,8 @@
         </form>
          </div>
   </div>
-  <script>
-    function validarFormulario() {
-        // Obtener referencias a los campos del formulario
-        const codAulaInput = document.getElementById('codAula');
-        const capacidadInput = document.getElementById('Capacidad');
-        const descripcionInput = document.getElementById('Descripcion');
-    
-        // Verificar que los campos no estén vacíos
-        if (codAulaInput.value.trim() === '' || descripcionInput.value.trim() === '') {
-            alert('Por favor, rellene todos los campos.');
-            return false; // Detener el envío del formulario
-        }
-    
-        // Verificar que capacidad sea un número entero
-        const capacidadValue = parseInt(capacidadInput.value);
-        if (isNaN(capacidadValue) || capacidadValue % 1 !== 0) {
-            alert('La capacidad debe ser un número entero.');
-            return false; // Detener el envío del formulario
-        }
-    
-        // Si todas las validaciones son exitosas, retorna true
-        return true;
-    }
-    </script>
-
-
-
-  <script>
-    function agregarAula() {
-    const form = document.getElementById('aulaForm');
-    const formData = new FormData(form);
-
-    // Realiza una solicitud POST al servidor para agregar los datos
-    fetch('http://localhost:5500/agregar-datos-aula', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Respuesta del servidor:', data);
-    })
-    .catch(error => {
-        console.error('Error al agregar aula:', error);
-    });
-}
-
-  </script>
-
-  <script>
-    
-function subirArchivo() {
-  const form = document.getElementById('archivoForm');
-  const formData = new FormData(form);
-
-  fetch('/procesar-archivo-csv', {
-      method: 'POST',
-      body: formData,
-  })
-  .then(response => response.json())
-  .then(data => {
+  <Script src="add.js">
    
-      console.log(data);
-  })
-  .catch(error => {
-      console.error('Error al subir archivo CSV:', error);
-  });
-}
-  </script>
-
+  </Script>
 </body>
 </html>
