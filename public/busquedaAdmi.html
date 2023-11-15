@@ -3,13 +3,15 @@
 <head>
    <meta charset='utf-8'>
    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-   <title>busquedaAdmi</title>
+   <title>caracteristicas</title>
    <meta name='Reserva de aulas' content='width=device-width, initial-scale=1'>
    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
    <link rel="stylesheet" href="Reserva.css">
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    <script src='main.js'></script>
+
+  
 </head>
 <body>
   <div class=" w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
@@ -33,102 +35,52 @@
  
   </div>
      <div>
-      <a href="NuevaAula.html">
-        <button class="w3-button w3-circle w3-teal">+</button>
-      </a>
+    <button class="w3-button w3-circle w3-teal">+</button>
   </div>
     <table class="w3-table-all w3-margin-top" id="myTable">
       <tr>
-        <th style="width:30%;">Estado</th>
+      
         <th style="width:30%;">Aula</th>
         <th style="width:30%;">Capacidad</th>
         <th style="width:60%;">Descripción</th>
         <th style="width:30%;">Modificar</th>
-        <th style="width:30%;">Deshabilitar</th>
+        <th style="width:30%;">Estado</th>
       </tr>
-      <tr>
-        <td>Habilitado</td>
-        <td>690A</td>
-        <td>30 alumnos</td>
-        <td>Aula pequeña, sin proyector</td>
-        <td><a href=""><i class="w3-container  fa fa-edit"></i></a></td>
-        <td><a href=""><i class="w3-container fa fa-close"></i></a></td>
-      </tr>
-      <tr>
-        <td>Habilitado</td>
-        <td>690B</td>
-        <td>40 alumnos</td>
-        <td>Aula Mediana, sin proyector.</td>
-        <td><a href=""><i class="w3-container  fa fa-edit"></i></a></td>
-        <td><a href=""><i class="w3-container fa fa-close"></i></a></td>
-      </tr>
-      <tr>
-        <td>Habilitado</td>
-        <td>690C</td>
-        <td>30 alumnos</td>
-        <td>Aula pequeña, sin proyector</td>
-        <td><a href=""><i class="w3-container  fa fa-edit"></i></a></td>
-        <td><a href=""><i class="w3-container fa fa-close"></i></a></td>
-      </tr>
-      <tr>
-        <td>Habilitado</td>
-        <td>690D</td>
-        <td>30 alumnos</td>
-        <td>Aula pequeña, con proyector.</td>
-        <td><a href=""><i class="w3-container  fa fa-edit"></i></a></td>
-        <td><a href=""><i class="w3-container fa fa-close"></i></a></td>
-      </tr>
-      <tr>
-        <td>Habilitado</td>
-        <td>690E</td>
-        <td>35 alumnos</td>
-        <td>Aula mediana, con asientos comodos.</td>
-        <td><a href=""><i class="w3-container  fa fa-edit"></i></a></td>
-        <td><a href=""><i class="w3-container fa fa-close"></i></a></td>
-      </tr>
-      <tr>
-        <td>Habilitado</td>
-        <td>691A</td>
-        <td>80 alumnos</td>
-        <td>Aula grande, con proyector.</td>
-        <td><a href=""><i class="w3-container  fa fa-edit"></i></a></td>
-        <td><a href=""><i class="w3-container fa fa-close"></i></a></td>
-      </tr>
-      <tr>
-        <td>Habilitado</td>
-        <td>691B</td>
-        <td>80 alumnos</td>
-        <td>Aula grande, sin proyector.</td>
-        <td><a href=""><i class="w3-container  fa fa-edit"></i></a></td>
-        <td><a href=""><i class="w3-container fa fa-close"></i></a></td>
-      </tr>
+     
       
     </table>
   
 
   </div>
-  
-  <script>
-  function myFunction() {
-    var input, filter, table, tr, td, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[1];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  }
-  </script>
-  
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+      <header class="w3-container w3-teal"> 
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>Actualizar aula</h2>
+      </header>
+      
+      
+      <form class="w3-container">
+        <label class="w3-text-teal"><b>capacidad</b></label>
+        <input class="w3-input w3-border w3-light-grey" id="capacidad" type="number" >
+      
+        <label class="w3-text-teal"><b>descripcion</b></label>
+        <input class="w3-input w3-border w3-light-grey" id="descripcion" type="text">
+      
+        <button class="w3-btn w3-blue-grey">Actualizar</button>
+      </form>
+      <footer class="w3-container w3-teal">
+       
+      </footer>
+    </div>
+  </div>
 
+  
+  <script src="busquedaAdmi.js">
+  
+    
+  </script>
 </body>
+
 </html>
