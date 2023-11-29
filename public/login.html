@@ -12,14 +12,17 @@
         <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
         <img src="loggi.png" alt="Avatar" style="width:15%" class="w3-circle w3-margin-top">
       </div>
-      <form class="w3-container" action="/action_page.php">
+      <form class="w3-container" >
         <div class="w3-section">
           <label><b>Nombre de usuario</b></label>
-          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Introduzca su nombre de usuario" name="usrname" required>
+          <input class="w3-input w3-border w3-margin-bottom" id="Nombre" type="text" placeholder="Introduzca su nombre de usuario" name="usrname" required>
+          <label><b>Apellido de usuario</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" id="Apellido" type="text" placeholder="Introduzca su nombre de usuario" name="usrname" required>
+        
           <label><b>Contraseña</b></label>
-          <input class="w3-input w3-border" type="password" placeholder="Introduzca su contraseña" name="psw" required>
-          <button class="w3-button w3-block w3-blue w3-section w3-padding" type="submit">Ingresar</button>
-          <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Guardar usuario
+          <input class="w3-input w3-border" type="password" id="codDocente" placeholder="Introduzca su contraseña" name="psw" required>
+          <button class="w3-button  w3-blue w3-section w3-padding" id="boton" >Registrar</button>
+          <input class="w3-check w3-margin-top" type="checkbox"  checked="checked"> Guardar usuario
         </div>
       </form>
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
@@ -29,6 +32,8 @@
     </div>
   </div>
 </div>
-
+<Script src="addDocente.js">
+   
+</Script>
 </body>
 </html>

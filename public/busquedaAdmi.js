@@ -33,12 +33,14 @@ fetch('http://localhost:5500/obtener-datos-aula')
     // código para modificar el aula
    
   }
+  //const id = '';
 
   const abrirModal = (button) => {
     const row = button.closest('tr');
     const titulo = row.cells[0].textContent;
     const capacidad = row.cells[1].textContent.split(' ')[0]; // Obtener solo el número de capacidad
     const descripcion = row.cells[2].textContent;
+ //   id = titulo;
   
     // Asignar los valores al formulario en el modal
     document.getElementById('capacidad').value = capacidad;
@@ -62,7 +64,7 @@ fetch('http://localhost:5500/obtener-datos-aula')
   const contenidoform = () => {
     const Capacidad = document.getElementById('capacidad').value;
     const Descripcion = document.getElementById('descripcion').value;
-    const codAula = document.getElementById('tituloModal').textContent;
+   // const codAula = '690B';
   
     // Enviar la solicitud PUT al servidor
     fetch(`http://localhost:5500/aulas/${codAula}`, {
@@ -70,7 +72,7 @@ fetch('http://localhost:5500/obtener-datos-aula')
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ codAula,Capacidad, Descripcion }),
+  body: JSON.stringify({ Capacidad, Descripcion }),
     })
       .then(response => response.json())
       .then(data => {

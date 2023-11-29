@@ -25,7 +25,9 @@ const config = {
 };
 
 app.use(express.static('public'));
-
+app.get('/', (req, res) => {
+    res.send('Servidor funcionando!');
+  });
 app.get('/obtener-datos-aula', async (req, res) => {
     try {
         await sql.connect(config);
