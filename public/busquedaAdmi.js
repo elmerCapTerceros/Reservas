@@ -45,7 +45,7 @@ fetch('http://localhost:5500/obtener-datos-aula')
     // Asignar los valores al formulario en el modal
     document.getElementById('capacidad').value = capacidad;
     document.getElementById('descripcion').value = descripcion;
-    document.getElementById('tituloModal').textContent = 'Actualizar aula : '+titulo;
+    document.getElementById('tituloModal').textContent = titulo;
   
     // Mostrar el modal
     document.getElementById('id01').style.display = 'block';
@@ -62,9 +62,9 @@ fetch('http://localhost:5500/obtener-datos-aula')
 
 
   const contenidoform = () => {
-    const Capacidad = document.getElementById('capacidad').value;
-    const Descripcion = document.getElementById('descripcion').value;
-   // const codAula = '690B';
+    const capacidad = document.getElementById('capacidad').value;
+    const descripcion = document.getElementById('descripcion').value;
+    const codAula = document.getElementById('tituloModal').textContent;
   
     // Enviar la solicitud PUT al servidor
     fetch(`http://localhost:5500/aulas/${codAula}`, {
@@ -72,7 +72,7 @@ fetch('http://localhost:5500/obtener-datos-aula')
       headers: {
         'Content-Type': 'application/json',
       },
-  body: JSON.stringify({ Capacidad, Descripcion }),
+  body: JSON.stringify({ capacidad, descripcion }),
     })
       .then(response => response.json())
       .then(data => {

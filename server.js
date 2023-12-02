@@ -3,16 +3,18 @@ const app = express();
 const port = 5500;// Puertos que deseas usar
 const sql = require('mssql');
 const cors = require('cors');
+const morgan = require('morgan');
 
 
 const jwt = require('jsonwebtoken');
 
-
-
+app.use(morgan('dev'));
+app.use(express.urlencoded({extended: false}));
 
 
 app.use(cors());
 app.use(express.json());
+
 const config = {
     server: 'localhost',
     user: 'andres',
@@ -50,9 +52,9 @@ app.get('/obtener-datos-aula', async (req, res) => {
   });
 
   // Endpoint PUT para actualizar un aula
-app.put('/aulas/:id', async (req, res) => {
+app.put('/aulas/:aula', async (req, res) => {
 
-  const aulaId = req.params.id;
+  const aula = req.params;
   
   const { capacidad, descripcion } = req.body;
   
@@ -65,18 +67,16 @@ app.put('/aulas/:id', async (req, res) => {
       UPDATE Aula 
       SET Capacidad = ${capacidad}, 
           Descripcion = ${descripcion}  
-      WHERE codAula = ${aulaId}
+      WHERE codAula = ${aula}
     `;
 
     // Verificar que se actualizó una fila
     if(result.rowsAffected[0] === 0) {
       return res.status(404).send('Aula no encontrada');
     }
-      
-    // Obtener el aula actualizada
-    const updatedAula = await getAulaById(aulaId);
+  
 
-    res.json(updatedAula);
+    res.json({actualizado});
 
   } catch (err) {
     console.error(err);
@@ -87,25 +87,7 @@ app.put('/aulas/:id', async (req, res) => {
 
 });
 
-// Función para obtener un aula por ID
-async function getAulaById(id) {
 
-  try {
-    await sql.connect(config);
-
-    const result = await sql.query`
-      SELECT codAula, Capacidad, Descripcion 
-      FROM Aula WHERE codAula = ${id}
-    `;
-
-    return result.recordset[0];
-
-  } catch (error) {
-    console.error(error);
-  } finally {
-    sql.close();
-  }  
-}
 app.post('/agregar-datos-aula', async (req, res) => {
   try {
       const { codAula, Capacidad, Descripcion } = req.body;
@@ -134,7 +116,7 @@ app.post('/agregar-datos-aula', async (req, res) => {
 
 
 
-app.post('/docente', async (req, res) => {
+app.post('/codDocente', async (req, res) => {
   try {
       const { codDocente, Nombre, Apellido} = req.body;
 
