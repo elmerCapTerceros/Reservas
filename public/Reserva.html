@@ -1,98 +1,101 @@
- <!DOCTYPE html>
- <html>
- <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='Reserva de aulas' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RESERVACION DE AULAS</title>
+    <meta name="Reserva de aulas" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <link rel="stylesheet" href="Reserva.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src='main.js'></script>
- </head>
- <body>
-   <div class=" w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-      <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-      <a href="login.html" class="w3-bar-item w3-button">Login</a>
-      <a href="inicio.html" class="w3-bar-item w3-button">inicio</a>
-      <a href="Historial.html" class="w3-bar-item w3-button">Historial</a>
-      <a href="busqueda.html" class="w3-bar-item w3-button">Caracteristicas</a>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+        <a href="login.html" class="w3-bar-item w3-button">Login</a>
+        <a href="inicio.html" class="w3-bar-item w3-button">Inicio</a>
+        <a href="Historial.html" class="w3-bar-item w3-button">Historial</a>
+        <a href="busqueda.html" class="w3-bar-item w3-button">Caracteristicas</a>
     </div>
-  <script src="navbar.js"></script>
-  <div class="w3-teal">
-   <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
-   <div class="w3-container">
-     <h1>RESERVACION DE AULAS</h1>
-   </div>
- </div>
- <div class="w3-container">
-   <h1>Crear Reserva:</h1>
-   <h3>Llenado de datos</h3>
-   <div>
-      <p>para empezar con la reserva, llene los siguientes campos correspondientes en caso de que participen 1 o mas docentes extra, puede añadirlos.</p>
-   </div>
-   <div>
-      <p>
-         Una vez llenado todos los datos presione el boton siguiente, si necesita realizar una modificacion podra volver a modificarlos apretando el boton volver atras.
-      </p>
-   </div>
- </div>
- <form class=" w3-container">
-   <h2>Datos del Docente</h2>
+    <script src="navbar.js"></script>
+
+    <div class="w3-teal">
+        <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+        <div class="w3-container">
+            <h1>RESERVACION DE AULAS</h1>
+        </div>
+    </div>
+
+    <div class="w3-container">
+        <h1>Crear Reserva:</h1>
+        <h3>Llenado de datos</h3>
+        <div>
+            <p>Para empezar con la reserva, llene los siguientes campos correspondientes. En caso de que participen 1 o más docentes extra, puede añadirlos.</p>
+        </div>
+        <div>
+            <p>Una vez llenados todos los datos, presione el botón siguiente. Si necesita realizar una modificación, podrá volver a modificarlos apretando el botón volver atrás.</p>
+        </div>
+    </div>
+
+    <form class="w3-container" action="#" method="post">
+        <h2>Datos del Docente</h2>
+        <div class="w3-container w3-row-padding">
+            <div class="w3-third">
+                <label for="nombreDocente">Nombre Completo Docente:</label>
+                <input class="w3-input" id="nombreDocente" type="text" placeholder="Ingrese Nombre Completo" required>
+            </div>
+            <div class="w3-third">
+                <label for="motivo">Motivo:</label>
+                <select class="w3-select" name="motivo" id="motivo" required>
+                    <option value="1">Exámen</option>
+                    <option value="2">Reunión</option>
+                    <option value="3">Clases</option>
+                </select>
+            </div>
+            <div class="w3-third">
+                <label for="fechaReserva">Fecha:</label>
+                <input class="w3-input" type="date" id="fechaReserva" required>
+            </div>
+        </div>
+
+        <div class="w3-container w3-row-padding">
+            <div class="w3-quarter">
+                <label for="grupo">Grupo:</label>
+                <input class="w3-input" type="number" id="grupo" placeholder="grupo" required>
+            </div>
+            <div class="w3-quarter">
+                <label for="horario">Horario:</label>
+                <select class="w3-select" name="horario" id="horario" required>
+                    <option value="1">06:45 - 08:15</option>
+                    <option value="2">08:15 - 09:45</option>
+                    <option value="3">09:45 - 11:15</option>
+                    <option value="4">11:15 - 12:45</option>
+                    <option value="5">12:45 - 14:15</option>
+                    <option value="6">14:15 - 15:45</option>
+                    <option value="7">15:45 - 17:15</option>
+                    <option value="8">17:15 - 18:45</option>
+                    <option value="9">18:45 - 20:15</option>
+                </select>
+            </div>
+            <div class="w3-quarter">
+                <label for="materia">Materia:</label>
+                <input class="w3-input w3-hover-blue" id="materia" type="text"  placeholder="Ingrese Materia" required>
+            </div>
+            <div class="w3-quarter">
+                <label for="codAula">Aula:</label>
+                <input class="w3-input w3-hover-blue" id="codAula" type="text" placeholder="Ingrese Aula" required>
+            </div>
+        </div>
    
-   <div class=" w3-container ">
-      <div class=" w3-half w3-container">
-         <p><input class="w3-input " type="text" placeholder="cosme fulanito">Nombre Completo Docente:</p>
+        <div class="w3-container">
+            <button class="w3-btn w3-block w3-blue w3-center" id="botonReserva" style="width:50%" type="submit">Confirmar Reserva</button>
         </div>
-        
-        <div class="w3-quarter w3-container" >
-       
-         <select class="w3-select" name="option" >
-           
-            <option value="1">Examen</option>
-            <option value="2">Reunion</option>
-            <option value="3">Clases</option>
-         </select>
-         motivo
-        </div>
-        <div class="w3-quarter w3-container">
-         <p><input class="w3-input " type="date">fecha</p>
-       </div>
-   </div>
-   <div class="w3-container ">
-    <div class="w3-quarter w3-container">
-      <p><input class="w3-input  " type="text" placeholder="Nombre docente extra">Agregar mas docentes:</p>
-    </div>
-    <div class="w3-quarter w3-container">
-      <p><input class="w3-input  " type="number" placeholder="grupo">grupo:</p>
-    </div>
-    <div class="w3-quarter w3-container" >
-      <select class="w3-select" name="option" >
-           
-         <option value="1">6:45 - 9:45</option>
-         <option value="2">9:45 - 11:15</option>
-         <option value="3">11:15 - 12:45</option>
-         <option value="4">12:45 - 14:15</option>
-         <option value="5">14:15 - 15:45</option>
-         <option value="6">15:45 - 17:15</option>
-         <option value="7">17:15 - 18:45</option>
-         <option value="6">18:45 - 20:15</option>
-         <option value="7">20:15 - 21:45</option>
-      </select>
-      Horario
-     </div>
-     <div class="w3-quarter w3-container">
-      <p><input class="w3-input  w3-hover-blue" type="text">Materia</p>
-    </div>
-   </div>
- <div class="w3-quarter w3-container w3-tiny">
-   <button class="w3-button w3-xlarge w3-circle w3-teal">+</button>
- </div>
-   </form>
-   <div class="w3-right w3-container">
-      
-      <a class="w3-button w3-teal w3-round-xlarge" href="Reserva2.html">Siguiente</a>
-   </div>
- </body>
- </html>
+    </form>
+    
+</div>
+    <Script src="addReserva.js">
+</Script>
+</body>
+</html>
