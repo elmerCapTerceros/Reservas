@@ -20,7 +20,7 @@ app.use(express.json());
 
 const config = {
     server: 'localhost',
-    user: 'andres',
+    user: 'capTerceros',
     port: 1433,
     password: 'estopa',
     database: 'ReservaProyecto',
