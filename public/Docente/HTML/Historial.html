@@ -3,35 +3,28 @@
 <head>
    <meta charset='utf-8'>
    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-   <title>Solicitudes</title>
+   <title>Historial</title>
    <meta name='Reserva de aulas' content='width=device-width, initial-scale=1'>
    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-   <link rel="stylesheet" href="Reserva.css">
+   <link rel="stylesheet" href="../CSS/Reserva.css">
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   <script src='main.js'></script>
+  
 </head>
 <body>
   <div class=" w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-<<<<<<< HEAD
-     <button onclick="w3_close()" class="w3-bar-item w3-large">Cerrar &times;</button>
-     <a href="login.html" class="w3-bar-item w3-button">Login</a>
-      <a href="busquedaAdmi.html" class="w3-bar-item w3-button">Admin</a>
-      <a href="Reserva.html" class="w3-bar-item w3-button">Reservar</a>
-      <a href="busqueda.html" class="w3-bar-item w3-button">Caracteristicas</a>
-      
-      <a href="NuevaAula.html" class="w3-bar-item w3-button">Nueva Aula</a>
-=======
      <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-     <a href="busquedaAdmi.html" class="w3-bar-item w3-button">busqueda</a>
-     <a href="login.html" class="w3-bar-item w3-button">cerrar sesion</a>
->>>>>>> 163f56293521d3cf8f2ec6fc6552fa4c8a752632
+     
+     <a href="inicio.html" class="w3-bar-item w3-button">inicio</a>
+     <a href="busqueda.html" class="w3-bar-item w3-button">caracteristicas</a>
+     <a href="Reserva.html" class="w3-bar-item w3-button">Reserva</a>
+     
    </div>
- <script src="navbar.js"></script>
+ <script src="../../navbar.js"></script>
  <div class="w3-teal">
   <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
   <div class="w3-container">
-    <h1>SOLICITUDES</h1>
+    <h1>HISTORIAL DE RESERVAS</h1>
   </div>
 </div>
 <table class="w3-table w3-striped">
@@ -44,7 +37,7 @@
       <th>Fecha</th>
       <th>Motivo</th>
       <th>Estado</th>
-      <th>aceptar</th>
+      <th>Anular reserva</th>
     </tr>
     <tr>
       <td>1</td>
@@ -54,32 +47,32 @@
       <td>15:45-17:15</td>
       <td>4/10/2023</td>
       <td>Examen</td>
-      <td>pendiente</td>
-      <td ><i class="w3-container fa fa-close "></i><i class="w3-container fa fa-check"></td>
-     
+      <td>Reservado</td>
+      <td ><i class="fa fa-trash "></i></td>
+   
     </tr>
     <tr>
         <td>1</td>
         <td>cosme fulanito</td>
-        <td>691A</td>
+        <td>Auditorio</td>
         <td>270 est.</td>
         <td>15:45-17:15</td>
         <td>4/10/2023</td>
         <td>Examen</td>
         <td>Pendiente</td>
-        <td ><i class="w3-container fa fa-close "></i><i class="w3-container fa fa-check"></td>
+        <td ><i class="fa fa-trash "></i></td>
      
       </tr>
       <tr>
         <td>1</td>
         <td>cosme fulanito</td>
-        <td>692B</td>
+        <td>Auditorio</td>
         <td>270 est.</td>
         <td>15:45-17:15</td>
         <td>4/10/2023</td>
         <td>Examen</td>
-        <td>Pendiente</td>
-        <td ><i class="w3-container fa fa-close "></i><i class="w3-container fa fa-check"></td>
+        <td>Rechazado</td>
+        <td ><i class="fa fa-trash "></i></td>
      
       </tr>
   </table>

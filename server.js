@@ -1,3 +1,6 @@
+
+const aulaRoutes = require("./public/routes/aula.js");
+const docenteRoutes = require("./public/routes/docente.js");
 const express = require('express');
 const app = express();
 const port = 5500;// Puertos que deseas usar
@@ -31,9 +34,13 @@ const config = {
   };
   app.use(express.static('public'));
   app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/NuevaAula.html');
+    res.sendFile(__dirname + '/public/login.html');
   });
+
+  app.use("/api/aula",aulaRoutes);
+  app.use("/api/docente",docenteRoutes);
 // Ruta para obtener los datos de la tabla 'Aula'
+/** 
 app.get('/obtener-datos-aula', async (req, res) => {
     try {
       await sql.connect(config);
@@ -50,8 +57,10 @@ app.get('/obtener-datos-aula', async (req, res) => {
       sql.close();
     }
   });
+  */
 
   // Endpoint PUT para actualizar un aula
+/** 
 app.put('/aulas/:aula', async (req, res) => {
 
   const aula = req.params;
@@ -86,8 +95,8 @@ app.put('/aulas/:aula', async (req, res) => {
   }
 
 });
-
-
+**/
+/** 
 app.post('/agregar-datos-aula', async (req, res) => {
   try {
       const { codAula, Capacidad, Descripcion } = req.body;
@@ -113,9 +122,9 @@ app.post('/agregar-datos-aula', async (req, res) => {
       sql.close();
   }
 });
+*/
 
-
-
+/**
 app.post('/codDocente', async (req, res) => {
   try {
       const { codDocente, Nombre, Apellido} = req.body;
@@ -148,7 +157,8 @@ app.post('/codDocente', async (req, res) => {
   }
   
 });
-
+ */
+/** 
 app.get('/prueba',(req,res,next)=>{
   const token = req.headers['x-acces-token'];
   if(!token){
@@ -161,6 +171,7 @@ app.get('/prueba',(req,res,next)=>{
   console.log(decoded);
   res.json('tienes autorizacion');
 })
+*/
 
   app.listen(port, () => {
     console.log(`Servidor en ejecución en http://localhost:${port}`);

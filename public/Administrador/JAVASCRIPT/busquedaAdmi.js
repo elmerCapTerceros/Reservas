@@ -1,7 +1,7 @@
 const botonmodal = document.getElementById("modificar");
 
 
-fetch('http://localhost:5500/obtener-datos-aula')
+fetch('http://localhost:5500/api/aula')
       .then(response => response.json())
       .then(data => {
         const table = document.getElementById("myTable");
@@ -13,12 +13,17 @@ fetch('http://localhost:5500/obtener-datos-aula')
           const descripcionCell = newRow.insertCell(2);
           const modificar = newRow.insertCell(3);
           const estado = newRow.insertCell(4);
+          
+          let habilitado = "Deshabilitado";
 
+          if(item.habilitado ==true ){
+            habilitado = "habilitado";
+          }
           codAulaCell.textContent = item.codAula;
           capacidadCell.textContent = item.Capacidad + " alumnos";
           descripcionCell.textContent = item.Descripcion;
           modificar.innerHTML = `<button onclick="abrirModal(this)" class="modificar-btn"><i class="fa fa-edit"></i></button>`;
-          estado.textContent = 'Habilitado';
+          estado.textContent = habilitado;
           console.log('biem');
         });
       })
@@ -40,12 +45,14 @@ fetch('http://localhost:5500/obtener-datos-aula')
     const titulo = row.cells[0].textContent;
     const capacidad = row.cells[1].textContent.split(' ')[0]; // Obtener solo el número de capacidad
     const descripcion = row.cells[2].textContent;
+    const habilitado = row.cells[4].textContent;
  //   id = titulo;
   
     // Asignar los valores al formulario en el modal
     document.getElementById('capacidad').value = capacidad;
     document.getElementById('descripcion').value = descripcion;
     document.getElementById('tituloModal').textContent = titulo;
+    document.getElementById('habilitado').textContent = habilitado;
   
     // Mostrar el modal
     document.getElementById('id01').style.display = 'block';
@@ -65,14 +72,14 @@ fetch('http://localhost:5500/obtener-datos-aula')
     const capacidad = document.getElementById('capacidad').value;
     const descripcion = document.getElementById('descripcion').value;
     const codAula = document.getElementById('tituloModal').textContent;
-  
+    const habilitado = document.getElementById('habilitado').value;
     // Enviar la solicitud PUT al servidor
-    fetch(`http://localhost:5500/aulas/${codAula}`, {
+    fetch(`http://localhost:5500/api/aula/${codAula}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-  body: JSON.stringify({ capacidad, descripcion }),
+  body: JSON.stringify({ capacidad, descripcion,habilitado }),
     })
       .then(response => response.json())
       .then(data => {

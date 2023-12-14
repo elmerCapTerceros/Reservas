@@ -12,7 +12,7 @@ const agregar = ()=>{
         Capacidad,
         Descripcion
     }
-    fetch('http://localhost:5500/agregar-datos-aula', {
+    fetch('http://localhost:5500/api/aula', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
