@@ -1,49 +1,104 @@
- <!DOCTYPE html>
- <html>
- <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Reserva</title>
-    <meta name='Reserva de aulas' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RESERVACION DE AULAS</title>
+    <meta name="Reserva de aulas" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <link rel="stylesheet" href="Reserva.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src='main.js'></script>
- </head>
- <body>
-   <div class=" w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-      <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-      
-      <a href="inicio.html" class="w3-bar-item w3-button">inicio</a>
-      <a href="Historial.html" class="w3-bar-item w3-button">Historial</a>
-      <a href="busqueda.html" class="w3-bar-item w3-button">Caracteristicas</a>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+        <a href="login.html" class="w3-bar-item w3-button">Login</a>
+        <a href="inicio.html" class="w3-bar-item w3-button">Inicio</a>
+        <a href="Historial.html" class="w3-bar-item w3-button">Historial</a>
+        <a href="busqueda.html" class="w3-bar-item w3-button">Caracteristicas</a>
     </div>
-  <script src="../../navbar.js"></script>
-  <div class="w3-teal">
-   <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
-   <div class="w3-container">
-     <h1>RESERVACION DE AULAS</h1>
-   </div>
- </div>
- <div class="w3-container">
-   <h1>Crear Reserva:</h1>
-   <h3>Llenado de datos</h3>
-   <div>
-      <p>para empezar con la reserva, llene los siguientes campos correspondientes en caso de que participen 1 o mas docentes extra, puede añadirlos.</p>
-   </div>
-   <div>
-      <p>
-         Una vez llenado todos los datos presione el boton siguiente, si necesita realizar una modificacion podra volver a modificarlos apretando el boton volver atras.
-      </p>
-   </div>
- </div>
- <form class=" w3-container">
-   <h2>Datos del Docente</h2>
+    <script src="navbar.js"></script>
+
+    <div class="w3-teal">
+        <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+        <div class="w3-container">
+            <h1>RESERVACION DE AULAS</h1>
+        </div>
+    </div>
+
+    <div class="w3-container">
+        <h1>Crear Reserva:</h1>
+        <h3>Llenado de datos</h3>
+        <div>
+            <p>Para empezar con la reserva, llene los siguientes campos correspondientes. En caso de que participen 1 o más docentes extra, puede añadirlos.</p>
+        </div>
+        <div>
+            <p>Una vez llenados todos los datos, presione el botón siguiente. Si necesita realizar una modificación, podrá volver a modificarlos apretando el botón volver atrás.</p>
+        </div>
+    </div>
+
+    <form class="w3-container" action="#" method="post">
+        <h2>Datos del Docente</h2>
+        <div class="w3-container w3-row-padding">
+            <div class="w3-third">
+                <label for="nombreDocente">Nombre Completo Docente:</label>
+                <input class="w3-input" id="nombreDocente" type="text" placeholder="Ingrese Nombre Completo" required>
+            </div>
+            <div class="w3-third">
+                <label for="motivo">Motivo:</label>
+                <select class="w3-select" name="motivo" id="motivo" required>
+                    <option value="Examen">Exámen</option>
+                    <option value="Reunion">Reunión</option>
+                    <option value="Clases">Clases</option>
+                </select>
+            </div>
+            <div class="w3-third">
+                <label for="fechaReserva">Fecha:</label>
+                <input class="w3-input" type="date" id="fechaReserva" required>
+            </div>
+        </div>
+
+        <div class="w3-container w3-row-padding">
+            <div class="w3-quarter">
+                <label for="grupo">Grupo:</label>
+                <input class="w3-input" type="number" id="grupo" placeholder="grupo" required>
+            </div>
+            <div class="w3-quarter">
+                <label for="horario">Horario:</label>
+                <select class="w3-select" name="horario" id="horario" required>
+                    <option value="06:45-08:15">06:45 - 08:15</option>
+                    <option value="08:15-09:45">08:15 - 09:45</option>
+                    <option value="09:45-11:15">09:45 - 11:15</option>
+                    <option value="11:15-12:45">11:15 - 12:45</option>
+                    <option value="12:45-14:15">12:45 - 14:15</option>
+                    <option value="14:15-15:45">14:15 - 15:45</option>
+                    <option value="15:45-17:15">15:45 - 17:15</option>
+                    <option value="17:15-18:45">17:15 - 18:45</option>
+                    <option value="18:45-20:15">18:45 - 20:15</option>
+                </select>
+            </div>
+            <div class="w3-quarter">
+                <label for="materia">Materia:</label>
+                <input class="w3-input w3-hover-blue" id="materia" type="text"  placeholder="Ingrese Materia" required>
+            </div>
+            <div class="w3-quarter">
+                <label for="codAula">Aula:</label>
+                <input class="w3-input w3-hover-blue" id="codAula" type="text" placeholder="Ingrese Aula" required>
+            </div>
+        </div>
    
         <div class="w3-container">
             <button class="w3-btn w3-block w3-blue w3-center" id="botonReserva" style="width:50%" type="submit">Confirmar Reserva</button>
         </div>
+
+            <!-- Mensaje de éxito oculto por defecto -->
+        <div class="w3-panel w3-green w3-round" id="mensajeExito" style="display: none;">
+            <h3>¡Reserva Agregada Correctamente!</h3>
+            <p>Su reserva se añadió con exito.</p>
+        </div>
+
     </form>
     
 </div>
