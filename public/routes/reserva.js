@@ -37,7 +37,7 @@ router.put('/:reserva', async (req, res) => {
 
     const {reserva} = req.params;
     
-    const {  estado } = req.body;
+    const { estado } = req.body;
     
     try {
   
@@ -46,17 +46,18 @@ router.put('/:reserva', async (req, res) => {
       // Query para actualizar el aula
       const result = await sql.query`
         UPDATE Reserva 
-        SET habilitado = ${estado}  
+        SET estado = ${estado}
         WHERE codReserva = ${reserva}
       `;
-  
+    
+
       // Verificar que se actualizó una fila
       if(result.rowsAffected[0] === 0) {
         return res.status(404).send('reserva no encontrada');
       }
     
   
-      res.json({reserva,estado});
+      res.json({reserva, estado});
   
     } catch (err) {
       console.error(err);

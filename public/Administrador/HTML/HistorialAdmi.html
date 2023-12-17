@@ -4,7 +4,7 @@
    <meta charset='utf-8'>
    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
    <title>Solicitudes</title>
-   <meta name='Reserva de aulas' content='width=device-width, initial-scale=1'>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
    
    
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -14,27 +14,27 @@
 <body>
   <div class=" w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
      <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-     <a href="busquedaAdmi.html" class="w3-bar-item w3-button">busqueda</a>
+     <a href="busquedaAdmi.html" class="w3-bar-item w3-button">Aulas</a>
    
    </div>
  <script src="../../navbar.js"></script>
- <div class="w3-teal">
+ <div class="w3-teal ">
   <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
-  <div class="w3-container">
+  <div class="w3-center">
     <h1>SOLICITUDES</h1>
   </div>
 </div>
 <table class="w3-table-all w3-margin-top" id="myTable">
   <tr>
-  
-    <th >Docente</th>
-    <th >Motivo</th>
-    <th >Fecha</th>
-    <th >Grupo</th>
-    <th >Horario</th>
-    <th >Materia</th>
-    <th >Aula</th>
-    <th >Estado</th>
+    <th  style="width:11%">codReserva</th>
+    <th  style="width:11%">Docente</th>
+    <th style="width:11%">Motivo</th>
+    <th style="width:11%">Fecha</th>
+    <th style="width:11%">Grupo</th>
+    <th style="width:11%">Horario</th>
+    <th style="width:11%">Materia</th>
+    <th style="width:11%">Aula</th>
+    <th style="width:11%">Estado</th>
 
     
   </tr>
@@ -42,13 +42,25 @@
 </div>
 </div>
 <div id="id01" class="w3-modal">
-  <div class="w3-modal-content w3-animate-zoom w3-card-4">
-    <header class="w3-container w3-teal"> 
-      <span onclick="document.getElementById('id01').style.display='none'" 
-      class="w3-button w3-display-topright">&times;</span>
-      <h2 id="tituloModal">Aceptar solicitud</h2>
+  <div class="w3-modal-content w3-display-middle w3-round-large">
+    <header class="w3-container w3-teal w3-round-large"> 
+      <div>
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+      </div>
+      <div>
+        <h2 id="titulo">Aceptar solicitud</h2>
+        <div id="tituloModal"></div>
+      </div>
+      
     </header>
     
+    <div class="w3-center">
+      
+      <button id="aceptar"  class="aceptar w3-button  w3-half w3-round-large w3-green">Aceptar</button>
+      <button class=" w3-button w3-half w3-round-large w3-red">Rechazar</button>
+      
+    </div>
     
     <footer class="w3-container w3-teal">
      
