@@ -19,7 +19,7 @@ router.get("/",async(req,res)=>{
     try {
         await sql.connect(config);
     
-        const result = await sql.query('SELECT codAula, Capacidad, Descripcion,habilitado FROM Aula');
+        const result = await sql.query('SELECT codAula, Capacidad, Descripcion,estado FROM Aula');
     
         const datosAula = result.recordset; // Los datos se obtienen del resultado de la consulta
     
@@ -36,7 +36,7 @@ router.get("/",async(req,res)=>{
 router.post('/', async (req, res) => {
   try {
       const { codAula, Capacidad, Descripcion } = req.body;
-      const habilitado = 1;
+      const estado = 1;
 
       if (!codAula || !Capacidad || !Descripcion ) {
           return res.status(400).json({ error: 'Faltan datos obligatorios' });
@@ -44,11 +44,11 @@ router.post('/', async (req, res) => {
 
       await sql.connect(config);
 
-      const query = `INSERT INTO Aula (codAula, Capacidad, Descripcion,habilitado) VALUES ('${codAula}', ${Capacidad}, '${Descripcion}',${habilitado})`;
+      const query = `INSERT INTO Aula (codAula, Capacidad, Descripcion,estado) VALUES ('${codAula}', ${Capacidad}, '${Descripcion}',${estado})`;
       const result = await sql.query(query);
 
       if (result.rowsAffected[0] === 1) {
-          res.status(201).json({ message: 'Datos de aula agregados exitosamente' });
+          res.status(201).json({ success: true, message: 'Datos de aula agregados exitosamente' });
       } else {
           res.status(500).json({ error: 'No se pudieron agregar los datos de aula' });
       }
@@ -65,7 +65,7 @@ router.put('/:aula', async (req, res) => {
 
     const {aula} = req.params;
     
-    const { capacidad, descripcion, habilitado } = req.body;
+    const { capacidad, descripcion, estado } = req.body;
     
     try {
   
@@ -76,7 +76,7 @@ router.put('/:aula', async (req, res) => {
         UPDATE Aula 
         SET Capacidad = ${capacidad}, 
             Descripcion = ${descripcion},
-            habilitado = ${habilitado}  
+            habilitado = ${estado}  
         WHERE codAula = ${aula}
       `;
   

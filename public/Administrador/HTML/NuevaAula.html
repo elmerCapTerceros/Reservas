@@ -9,18 +9,16 @@
    <link rel="stylesheet" href="Reserva.css">
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   <script src='main.js'></script>
+   
 </head>
 <body>
   <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
      <button onclick="w3_close()" class="w3-bar-item w3-large">Cerrar &times;</button>
-     <a href="login.html" class="w3-bar-item w3-button">Login</a>
-     <a href="inicio.html" class="w3-bar-item w3-button">Inicio</a>
-     <a href="Reserva.html" class="w3-bar-item w3-button">Reservar</a>
-     <a href="busquedaAdmi.html" class="w3-bar-item w3-button">Admin</a>
+    
+     <a href="busquedaAdmi.html" class="w3-bar-item w3-button">Busquedas</a>
      <a href="Historial.html" class="w3-bar-item w3-button">Historial</a>
   </div>
-  <script src="navbar.js"></script>
+  <script src="../../navbar.js"></script>
   <div class="w3-teal">
     <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
     <div class="w3-container">
@@ -33,15 +31,15 @@
           <form id="aulaForm" >
               <div class="w3-third">
                   <label for="codAula">Aula:</label>
-                  <input class="w3-input w3-border" type="text" id="codAula" name="codAula" placeholder="Aula" required>
+                  <input class="w3-input w3-border" type="text" id="codAula" name="codAula" placeholder="ingrese un aula ej: 690A" required>
               </div>
               <div class="w3-third">
                   <label for="Capacidad">Capacidad:</label>
-                  <input class="w3-input w3-border" type="text" id="Capacidad" name="Capacidad" placeholder="Capacidad" required>
+                  <input class="w3-input w3-border" type="number" id="Capacidad" name="Capacidad" placeholder="ingrese la capacidad ej: 63" required>
               </div>
               <div class="w3-third">
                   <label for="Descripcion">Descripción:</label>
-                  <input class="w3-input w3-border" type="text" id="Descripcion" name="Descripcion" placeholder="Descripción" required>
+                  <input class="w3-input w3-border" type="text" id="Descripcion" name="Descripcion" placeholder="ingrese descripcion ej:data" required>
               </div>
               <button class="w3-btn w3-block w3-blue w3-center" id= "botons" style="width:50%" >agregar Aula</button>
           </form>
@@ -64,8 +62,35 @@
         </form>
          </div>
   </div>
-  <Script src="add.js">
-   
+
+
+
+
+
+
+
+
+</div>
+<div id="id01" class="w3-modal  ">
+  <div class="w3-teal w3-display-middle w3-modal-content   w3-round-xxlarge">
+    
+    
+    <div class="w3-panel w3-teal w3-round-xxlarge">
+      <div class="w3-center">
+        <h3 >Aula Agregada Con Exito</h3>
+      </div>
+      
+      <div class="w3-center">
+        <button onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button ">Aceptar</button>
+      </div>
+    
+    </div>
+    
+  </div>
+</div>
+  <Script src="../JAVASCRIPT/add.js">
   </Script>
+  
 </body>
 </html>

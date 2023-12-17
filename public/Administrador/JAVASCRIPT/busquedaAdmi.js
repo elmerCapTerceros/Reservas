@@ -45,7 +45,7 @@ fetch('http://localhost:5500/api/aula')
     const titulo = row.cells[0].textContent;
     const capacidad = row.cells[1].textContent.split(' ')[0]; // Obtener solo el número de capacidad
     const descripcion = row.cells[2].textContent;
-    const habilitado = row.cells[4].textContent;
+    const habilitado = row.cells[4].textContent.split(' ')[0];
  //   id = titulo;
   
     // Asignar los valores al formulario en el modal
@@ -72,23 +72,26 @@ fetch('http://localhost:5500/api/aula')
     const capacidad = document.getElementById('capacidad').value;
     const descripcion = document.getElementById('descripcion').value;
     const codAula = document.getElementById('tituloModal').textContent;
-    const habilitado = document.getElementById('habilitado').value;
+    const estado = document.getElementById('habilitado').value;
     // Enviar la solicitud PUT al servidor
     fetch(`http://localhost:5500/api/aula/${codAula}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-  body: JSON.stringify({ capacidad, descripcion,habilitado }),
+  body: JSON.stringify({ capacidad, descripcion,estado }),
     })
       .then(response => response.json())
       .then(data => {
         // Actualizar la interfaz de usuario según sea necesario
         console.log('Aula actualizada:', data);
+  
       })
       .catch(error => {
         console.error('Error al actualizar aula:', error);
       });
+
+  
   };
   
   const boton = document.getElementById("modificar");
