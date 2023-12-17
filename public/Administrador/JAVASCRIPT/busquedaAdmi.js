@@ -16,7 +16,7 @@ fetch('http://localhost:5500/api/aula')
           
           let habilitado = "Deshabilitado";
 
-          if(item.habilitado ==true ){
+          if(item.estado ==true ){
             habilitado = "habilitado";
           }
           codAulaCell.textContent = item.codAula;
@@ -31,15 +31,14 @@ fetch('http://localhost:5500/api/aula')
         console.error("Error al obtener datos:", error);
       });
 
-      
+      const modificar = document.querySelectorAll('.modificar-btn');
   
-
-  function modificarAula(btn) {
-    // código para modificar el aula
-   
-  }
-  //const id = '';
-
+      modificar.forEach(btn => {
+        btn.addEventListener('click', () => {
+          abrirModal(btn);
+        });
+      }); 
+  
   const abrirModal = (button) => {
     const row = button.closest('tr');
     const titulo = row.cells[0].textContent;
@@ -58,13 +57,7 @@ fetch('http://localhost:5500/api/aula')
     document.getElementById('id01').style.display = 'block';
   };
   
-  const modificar = document.querySelectorAll('.modificar-btn');
   
-  modificar.forEach(btn => {
-    btn.addEventListener('click', () => {
-      abrirModal(btn);
-    });
-  });
 
 
 

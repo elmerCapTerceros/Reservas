@@ -76,7 +76,7 @@ router.put('/:aula', async (req, res) => {
         UPDATE Aula 
         SET Capacidad = ${capacidad}, 
             Descripcion = ${descripcion},
-            habilitado = ${estado}  
+            estado = ${estado}  
         WHERE codAula = ${aula}
       `;
   

@@ -12,7 +12,7 @@ const agregar = () => {
     Apellido
   };
 
-  fetch('http://localhost:5500/docente', {
+  fetch('http://localhost:5500/api/docente', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

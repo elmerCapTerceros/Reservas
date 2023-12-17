@@ -1,6 +1,7 @@
 
 const aulaRoutes = require("./public/routes/aula.js");
 const docenteRoutes = require("./public/routes/docente.js");
+const reservaRoutes = require("./public/routes/reserva.js");
 const express = require('express');
 const app = express();
 const port = 5500;// Puertos que deseas usar
@@ -39,6 +40,7 @@ const config = {
 
   app.use("/api/aula",aulaRoutes);
   app.use("/api/docente",docenteRoutes);
+  app.use("/api/reserva",reservaRoutes);
 // Ruta para obtener los datos de la tabla 'Aula'
 /** 
 app.get('/obtener-datos-aula', async (req, res) => {

@@ -5,11 +5,11 @@
    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
    <title>Solicitudes</title>
    <meta name='Reserva de aulas' content='width=device-width, initial-scale=1'>
-   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-   <link rel="stylesheet" href="Reserva.css">
+   
+   
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   <script src='main.js'></script>
+  
 </head>
 <body>
   <div class=" w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
@@ -24,57 +24,37 @@
     <h1>SOLICITUDES</h1>
   </div>
 </div>
-<table class="w3-table w3-striped">
-    <tr>
-      <th>Nro.</th>
-      <th>Docente</th>
-      <th>Aula</th>
-      <th>Cantidad</th>
-      <th>Horario</th>
-      <th>Fecha</th>
-      <th>Motivo</th>
-      <th>Estado</th>
-      <th>aceptar</th>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>cosme fulanito</td>
-      <td>Auditorio</td>
-      <td>270 est.</td>
-      <td>15:45-17:15</td>
-      <td>4/10/2023</td>
-      <td>Examen</td>
-      <td>pendiente</td>
-      <td ><i class="w3-container fa fa-close "></i><i class="w3-container fa fa-check"></td>
-     
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>cosme fulanito</td>
-        <td>691A</td>
-        <td>270 est.</td>
-        <td>15:45-17:15</td>
-        <td>4/10/2023</td>
-        <td>Examen</td>
-        <td>Pendiente</td>
-        <td ><i class="w3-container fa fa-close "></i><i class="w3-container fa fa-check"></td>
-     
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>cosme fulanito</td>
-        <td>692B</td>
-        <td>270 est.</td>
-        <td>15:45-17:15</td>
-        <td>4/10/2023</td>
-        <td>Examen</td>
-        <td>Pendiente</td>
-        <td ><i class="w3-container fa fa-close "></i><i class="w3-container fa fa-check"></td>
-     
-      </tr>
-  </table>
-</div>
+<table class="w3-table-all w3-margin-top" id="myTable">
+  <tr>
+  
+    <th >Docente</th>
+    <th >Motivo</th>
+    <th >Fecha</th>
+    <th >Grupo</th>
+    <th >Horario</th>
+    <th >Materia</th>
+    <th >Aula</th>
+    <th >Estado</th>
 
+    
+  </tr>
+ 
+</div>
+</div>
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom w3-card-4">
+    <header class="w3-container w3-teal"> 
+      <span onclick="document.getElementById('id01').style.display='none'" 
+      class="w3-button w3-display-topright">&times;</span>
+      <h2 id="tituloModal">Aceptar solicitud</h2>
+    </header>
+    
+    
+    <footer class="w3-container w3-teal">
+     
+    </footer>
+  </div>
+<Script src="../JAVASCRIPT/reservaLista.js"></Script>
 
 </body>
 </html>
