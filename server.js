@@ -21,9 +21,10 @@ app.use(express.json());
 
 const config = {
     server: 'localhost',
-    user: 'capTerceros',
+    user: 'andres',
     port: 1433,
     password: 'estopa',
+    //database: 'ReservaProyect', //mi base de datos
     database: 'ReservaProyecto',
     options: {
         "encrypt": true,
@@ -33,6 +34,8 @@ const config = {
           
       },
   };
+
+
   app.use(express.static('public'));
   app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/login.html');

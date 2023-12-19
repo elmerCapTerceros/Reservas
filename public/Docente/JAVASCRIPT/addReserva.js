@@ -17,7 +17,7 @@ const agregar = ()=>{
         materia,
         codAula
     }
-    fetch('http://localhost:5500/nuevaReserva', {
+    fetch('http://localhost:5500/api/reserva', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

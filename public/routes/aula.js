@@ -6,7 +6,9 @@ const config = {
     server: 'localhost',
     user: 'andres',
     port: 1433,
+   // port: 5500,
     password: 'estopa',
+    //database: 'ReservaProyect',
     database: 'ReservaProyecto',
     options: {
         encrypt: true,

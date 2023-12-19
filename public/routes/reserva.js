@@ -8,6 +8,7 @@ const config = {
     port: 1433,
     password: 'estopa',
     database: 'ReservaProyecto',
+    //database: 'ReservaProyect',
     options: {
         encrypt: true,
         enableArithAbort: true,
@@ -34,13 +35,9 @@ router.get("/",async(req,res)=>{
 
 
 router.put('/:reserva', async (req, res) => {
-
-    const {reserva} = req.params;
-    
-    const { estado } = req.body;
-    
+    const {reserva} = req.params;  
+    const { estado } = req.body;  
     try {
-  
       await sql.connect(config);
       
       // Query para actualizar el aula
@@ -49,7 +46,6 @@ router.put('/:reserva', async (req, res) => {
         SET estado = ${estado}
         WHERE codReserva = ${reserva}
       `;
-    
 
       // Verificar que se actualizó una fila
       if(result.rowsAffected[0] === 0) {
@@ -69,25 +65,42 @@ router.put('/:reserva', async (req, res) => {
   });
   
 
-
-
-
-
-
-router.post('/', async (req, res) => {
+  router.post('/', async (req, res) => {
     try {
         const { nombreDocente, motivo, fechaReserva, grupo, horario, materia, codAula } = req.body;
-  
+
         if (!nombreDocente || !motivo || !fechaReserva || !grupo || !horario || !materia || !codAula) {
             return res.status(400).json({ error: 'Faltan datos obligatorios' });
         }
-  
-      // Realiza la transformación condicional según el valor de 'horario'
-  
-       await sql.connect(config);
-        const query = `INSERT INTO Reservas (nombreDocente, motivo, fechaReserva, grupo, horario, materia, codAula) VALUES ('${nombreDocente}', '${motivo}', '${fechaReserva}',${grupo},'${horario}','${materia}','${codAula}')`;
-        const result = await sql.query(query);
-  
+
+        await sql.connect(config);
+
+        // Verificar si ya existe una reserva para el mismo aula en la misma fecha y hora
+        const verificarReservaQuery = `
+            SELECT COUNT(*) AS countReservas
+            FROM Reservas
+            WHERE codAula = '${codAula}'
+              AND fechaReserva = '${fechaReserva}'
+              AND horario = '${horario}'
+        `;
+        const verificarReservaResult = await sql.query(verificarReservaQuery);
+
+        const countReservas = verificarReservaResult.recordset[0].countReservas;
+
+        if (countReservas > 0) {
+            // Ya hay una reserva para el mismo aula en la misma fecha y hora
+            return res.status(400).json({ error: 'Ya hay una reserva para la misma aula, en la misma fecha y hora.' });
+        }
+
+        // Si no hay reservas existentes, procede con la inserción
+        const insertarReservaQuery = `
+            INSERT INTO Reservas (nombreDocente, motivo, fechaReserva, grupo, horario, materia, codAula, estado) 
+            VALUES 
+                ('${nombreDocente}', '${motivo}', '${fechaReserva}', ${grupo}, '${horario}', '${materia}', '${codAula}', 'pendiente')
+        `;
+
+        const result = await sql.query(insertarReservaQuery);
+
         if (result.rowsAffected[0] === 1) {
             res.status(201).json({ message: 'Reserva Agregada' });
         } else {
@@ -99,8 +112,7 @@ router.post('/', async (req, res) => {
     } finally {
         sql.close();
     }
-    
-  });
+});
 
 
   module.exports = router;
