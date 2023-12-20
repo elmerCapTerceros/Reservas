@@ -115,5 +115,22 @@ router.put('/:reserva', async (req, res) => {
 });
 
 
+//metodo para obtener mis reservas. 
+router.get('/', async (req, res) => {
+  try {
+    await sql.connect(config);
+    const result = await sql.query('SELECT nombreDocente, motivo, fechaReserva, grupo, horario, materia, codAula, estado FROM Reservas');
+    const datosReservas = result.recordset;
+    res.json(datosReservas);
+  } catch (err) {
+    console.error('Error al obtener datos de la base de datos:', err);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  } finally {
+    if (sql.connected) {
+      await sql.close();
+    }
+  }
+});
+
   module.exports = router;
   

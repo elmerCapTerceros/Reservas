@@ -5,7 +5,6 @@ const express = require('express');
 const config = {
     server: 'localhost',
     user: 'andres',
-    
     port: 1433,
     password: 'estopa',
     database: 'ReservaProyecto',
