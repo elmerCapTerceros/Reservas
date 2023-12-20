@@ -23,13 +23,22 @@ const agregar = ()=>{
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(nuevo)
-    })
+
+    }).then(response => response.json())
+      .then(data => {
+        // Actualizar la interfaz de usuario según sea necesario
+        console.log('Reserva creada:', data);
+        location.reload(true);
+      })
+      .catch(error => {
+        console.error('Error al crear reserva:', error);
+      });
 }
 
 
 const obtenerReservas = async () => {
     try {
-        const response = await fetch('http://localhost:5500/api/reserva', {
+        const response = await fetch('http://localhost:5500/api/reserva/2', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -83,3 +92,4 @@ const mostrarReservasEnTabla = async () => {
 };
 
 boton.addEventListener('click',agregar);
+mostrarReservasEnTabla();

@@ -78,7 +78,7 @@ router.put('/:reserva', async (req, res) => {
         // Verificar si ya existe una reserva para el mismo aula en la misma fecha y hora
         const verificarReservaQuery = `
             SELECT COUNT(*) AS countReservas
-            FROM Reservas
+            FROM Reserva
             WHERE codAula = '${codAula}'
               AND fechaReserva = '${fechaReserva}'
               AND horario = '${horario}'
@@ -94,7 +94,7 @@ router.put('/:reserva', async (req, res) => {
 
         // Si no hay reservas existentes, procede con la inserción
         const insertarReservaQuery = `
-            INSERT INTO Reservas (nombreDocente, motivo, fechaReserva, grupo, horario, materia, codAula, estado) 
+            INSERT INTO Reserva (nombreDocente, motivo, fechaReserva, grupo, horario, materia, codAula, estado) 
             VALUES 
                 ('${nombreDocente}', '${motivo}', '${fechaReserva}', ${grupo}, '${horario}', '${materia}', '${codAula}', 'pendiente')
         `;
@@ -116,10 +116,10 @@ router.put('/:reserva', async (req, res) => {
 
 
 //metodo para obtener mis reservas. 
-router.get('/', async (req, res) => {
+router.get('/2', async (req, res) => {
   try {
     await sql.connect(config);
-    const result = await sql.query('SELECT nombreDocente, motivo, fechaReserva, grupo, horario, materia, codAula, estado FROM Reservas');
+    const result = await sql.query('SELECT nombreDocente, motivo, fechaReserva, grupo, horario, materia, codAula, estado FROM Reserva');
     const datosReservas = result.recordset;
     res.json(datosReservas);
   } catch (err) {

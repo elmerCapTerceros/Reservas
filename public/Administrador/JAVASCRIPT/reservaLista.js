@@ -74,7 +74,7 @@ fetch('http://localhost:5500/api/reserva')
 
 
   
-  const contenidoform = () => {
+  const aceptarsoli = () => {
     const codReserva = document.getElementById('tituloModal').textContent;
     const estado = "Reservado";
     // Enviar la solicitud PUT al servidor
@@ -97,6 +97,31 @@ fetch('http://localhost:5500/api/reserva')
 
    
   };
+  const rechazarsoli = () => {
+    const codReserva = document.getElementById('tituloModal').textContent;
+    const estado = "Rechazado";
+    // Enviar la solicitud PUT al servidor
+    fetch(`http://localhost:5500/api/reserva/${codReserva}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ estado }), // Corregir el campo que estás actualizando
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Actualizar la interfaz de usuario según sea necesario
+        console.log('Solicitud actualizada:', data);
+        location.reload(true);
+      })
+      .catch(error => {
+        console.error('Error al actualizar solicitud:', error);
+      });
+
+   
+  };
+  const boton2 = document.getElementById("rechazar");
+  boton2.addEventListener('click', rechazarsoli);
 
   const boton = document.getElementById("aceptar");
-  boton.addEventListener('click', contenidoform);
+  boton.addEventListener('click', aceptarsoli);
