@@ -1,0 +1,10 @@
+Instrucciones Base De Datos:
+
+Se uso sql server como sistema de gestor de base de datos por lo tanto ofrecemos dos alternativas para crear la base de datos. independientemente de las opcion que se tome se debe crear un usuario de seguridad para tener acceso a la base de datos (si prefiere un usuario personal se debe cambia el usuario y contraseña del server y las rutas) el usuario por defecto debe ser:
+			.usuario = andres
+			.password = estopa 
+opcion 1 Backup(equivalente a dump en sql server):
+Restaurando la base de datos y seleccionando el backup("ReservaProyecto.bak") ya tendremos toda la base de datos con las tablas correspondientes.
+
+opcion 2 sql query:
+El archivo "EstructuraBaseDeDatos" tiene el query correspondiente para crear la base de datos.

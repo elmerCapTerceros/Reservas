@@ -1,0 +1,30 @@
+Instrucciones de uso de administrador :
+
+1:Ingreso
+
+Se ingresa a la vista del administrador desde la ventana login solo pulsando el boton "Administrador".
+
+2:Aulas
+
+Una vez pulsado el boton "Administrador" estara en la ventana "Aulas" para volver a login pulse "salir" en el navbar de la ventana actual. En esta ventana podra ver todas las aulas creadas tanto habilitadas como deshabilitadas, se puede modificar la informacion de cada aula pulsando el boton con el icono de modificar en cada fila del aula correspondiente eso le abrira un modal.
+
+3:Modificar Aula
+
+Despues de abrir el modal veremos un form con los datos del aula a modificar si queremos cambiar los datos lo hacemos directamente(para cambiar el estado se debe poner un valor entre 0 o 1, 0 para desahibilitar el aula y 1 para habilitarlo), una vez puesto los cambios de debe pulsar "Actualizar" esto actualizara el aula y cerra el modal y se veran los cambios reflejados en el table.
+
+4:Agregar aula nueva
+
+Si queremos agregar un aula nueva solo debemos pulsar el boton "Agregar aula nueva " que esta arriba del table de aulas esto nos llevara a la ventana "nueva aula" donde se nos mostrara un form sencillo para agregar un aula llene los campos y pulse "agregar aula" le aparecera un modal de confirmacion. Para salir de esta ventana habra el navbar y pulse "Salir" para ir al login o pulse "Aulas" para volver a la ventana de aulas o pulse "Historial de solicitudes" para ver las solicitudes.
+
+5:Historial de solicitudes
+
+En la ventana de solicitudes ponemos ver un table con todas las solicitudes hechas por los docentes, se muestran de la siguiente manera:
+	. Amarrillo = solicitudes pendientes
+	. Verde = solicitudes aceptadas
+	. Rojo = solicitudes rechazadas
+las solicitudes pendientes siempre se mostraran al principio del table para dales mas prioridad cada solicitud pendiente tiene un boton "pendiente" al pulsarlo se abrira un modal para aceptar o rechazar la solicitud.
+
+6:Aceptar o Rechazar una solicitud 
+
+Una vez pulsado el boton "pendiente" se nos mostrara un modal con dos botones: "Aceptar" en color verde y "Rechazar" en color rojo simplemente pulse en la accion que quiera realizar y el modal se cerrara y se modificara el table con los cambios correspondientes.
+
