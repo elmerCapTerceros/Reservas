@@ -1,4 +1,55 @@
 const boton = document.getElementById("botonReserva");
+
+const mostrarReservasEnTabla = async () => {
+    const tablaReservas = document.getElementById('tablaReserva');
+    const reservas = await obtenerReservas();
+    tablaReservas.innerHTML = `
+        <tr>
+            <th>Docente</th>
+            <th>Motivo</th>
+            <th>Fecha de Reserva</th>
+            <th>Grupo</th>
+            <th>Horario</th>
+            <th>Materia</th>
+            <th>Aula</th>
+            <th>Estado</th>
+        </tr>
+    `;
+    
+    reservas.forEach(reserva => {
+        if(reserva.estado.toLowerCase() != 'rechazado'){
+            const nuevaFila = document.createElement('tr');
+            nuevaFila.innerHTML = `
+                <td>${reserva.nombreDocente}</td>
+                <td>${reserva.motivo}</td>
+                <td>${reserva.fechaReserva}</td>
+                <td>${reserva.grupo}</td>
+                <td>${reserva.horario}</td>
+                <td>${reserva.materia}</td>
+                <td>${reserva.codAula}</td>
+                <td>${reserva.estado}</td>
+            `;
+            tablaReservas.appendChild(nuevaFila);
+    switch (reserva.estado.toLowerCase()) {
+        case 'pendiente':
+          nuevaFila.style.backgroundColor = '#FFFF00';
+          
+          break;
+        case 'reservado':
+          nuevaFila.style.backgroundColor = '#06F803';
+          break;
+        case 'rechazado':
+          nuevaFila.style.backgroundColor = '#FF2700';
+          break;
+        default:
+          // Puedes agregar un color predeterminado o dejarlo sin cambios
+          break;
+      }
+   
+        }
+    });
+};
+
 const agregar = ()=>{
     let nombreDocente=document.getElementById('nombreDocente').value;
     let motivo=document.getElementById('motivo').value;
@@ -28,11 +79,12 @@ const agregar = ()=>{
       .then(data => {
         // Actualizar la interfaz de usuario según sea necesario
         console.log('Reserva creada:', data);
-        location.reload(true);
+        
       })
       .catch(error => {
         console.error('Error al crear reserva:', error);
       });
+      mostrarReservasEnTabla();
 }
 
 
@@ -59,37 +111,6 @@ const obtenerReservas = async () => {
 };
 
 
-const mostrarReservasEnTabla = async () => {
-    const tablaReservas = document.getElementById('tablaReserva');
-    const reservas = await obtenerReservas();
-    tablaReservas.innerHTML = `
-        <tr>
-            <th>Docente</th>
-            <th>Motivo</th>
-            <th>Fecha de Reserva</th>
-            <th>Grupo</th>
-            <th>Horario</th>
-            <th>Materia</th>
-            <th>Aula</th>
-            <th>Estado</th>
-        </tr>
-    `;
-    reservas.forEach(reserva => {
-        const nuevaFila = `
-            <tr>
-                <td>${reserva.nombreDocente}</td>
-                <td>${reserva.motivo}</td>
-                <td>${reserva.fechaReserva}</td>
-                <td>${reserva.grupo}</td>
-                <td>${reserva.horario}</td>
-                <td>${reserva.materia}</td>
-                <td>${reserva.codAula}</td>
-                <td>${reserva.estado}</td>
-            </tr>
-        `;
-        tablaReservas.innerHTML += nuevaFila;
-    });
-};
 
 boton.addEventListener('click',agregar);
 mostrarReservasEnTabla();

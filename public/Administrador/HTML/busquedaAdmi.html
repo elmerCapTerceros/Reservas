@@ -16,7 +16,7 @@
   <div class=" w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
      <button onclick="w3_close()" class="w3-bar-item w3-large">Cerrar &times;</button>
      <a href="HistorialAdmi.html" class="w3-bar-item w3-button">Historial de solicitudes</a>
-    
+     <a href="../../login.html" class="w3-bar-item w3-button">Salir</a>
   
    </div>
  <script src="../../navbar.js"></script>
@@ -29,12 +29,9 @@
 <div class="w3-container">
     <h2>Aulas</h2>
     
-  <div>
-    <input class="w3-input w3-border w3-padding" type="text" placeholder="Buscar" id="myInput" onkeyup="myFunction()">
- 
-  </div>
+  
      <div>
-    <a href="./NuevaAula.html" class="w3-button w3-circle w3-teal">+</a>
+    <a href="./NuevaAula.html" class="w3-button w3-round-xxlarge w3-teal">Agregar aula nueva</a>
   </div>
     <table class="w3-table-all w3-margin-top" id="myTable">
       <tr>
@@ -62,13 +59,13 @@
       
       <form class="w3-container">
         <label class="w3-text-teal"><b>Capacidad</b></label>
-        <input class="w3-input w3-border w3-light-grey" id="capacidad" type="number" >
+        <input class="w3-input w3-border w3-light-grey" min="0" id="capacidad" type="number" >
       
         <label class="w3-text-teal"><b>Descripcion</b></label>
         <input class="w3-input w3-border w3-light-grey" id="descripcion" type="text">
 
-        <label class="w3-text-teal"><b>estado</b></label>
-        <input class="w3-input w3-border w3-light-grey" id="habilitado" type="number">
+        <label class="w3-text-teal"><b>Estado (poner 0 para deshabilitar y 1 para habilitar el aula)</b></label>
+        <input class="w3-input w3-border w3-light-grey" min="0" max="1" id="habilitado" type="number">
 
         
       
