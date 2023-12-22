@@ -1,0 +1,20 @@
+Instrucciones de uso del Docente:
+
+1: Debemos seleccionar el modo de usuario que deseamos, en este caso Docente.
+
+2: Nos abrirá el inicio, donde tendremos un navbar para seleccionar las opciones 
+que tenemos como docente.
+
+3: tenemos tres opciones:
+    -la primera son las caracteristicas, donde podemos ir viendo
+     las aulas disponibles en la universidad, sus comodidades y la capacidad de estudiantes,
+     esto es necesario para poder ir viendo que aula reservar.
+    -También tenemos la opción de reservar, donde nos pedirá datos importantes para realizar nuestra
+     reserva, como el nombre del docente, materia, horario, aula, fecha, etc.
+     A la hora de elegir un aula es importante seleccionar un aula existente, si es que el aula
+     no existe, no se realiza la reserva.
+    - Contamos con una tabla de reservas, donde el docente puede ir viendo las reservas que hizo,
+    como tambien de otros docentes.
+Es importante llenar todos los campos y confirmar nuestra reserva.
+
+
